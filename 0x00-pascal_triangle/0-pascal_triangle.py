@@ -8,15 +8,17 @@ pasc = []
 
 
 def pascal_triangle(n=0):
-    if n == 0:
-        return pasc
-    elif n == 1:
+    """
+    This function is used to generate the pascal triangle
+    
+    Args:
+        @n: the number of rows to be generated
+    """
+    pasc = []
+    for i in range(n):
         pasc.append([1])
-        return pasc
-    else:
-        pascal_triangle(n-1)
-        pasc.append([1])
-        for j in range(1, n-1):
-            pasc[n - 1].append(pasc[n - 2][j-1]+pasc[n - 2][j])
-        pasc[n-1].append(1)
-        return pasc
+        for j in range(1, i):
+            pasc[i].append(pasc[i - 1][j - 1] + pasc[i - 1][j])
+        if i != 0:
+            pasc[i].append(1)
+    return pasc
