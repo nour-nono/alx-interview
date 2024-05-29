@@ -2,25 +2,7 @@
 """
 This module is used to print the pascal triangle
 I have used the recursive approach to solve the problem
-and wrote the code for the iterative approach as well but commented it
 """
-# def pascal_triangle(n):
-#     pasc = []
-#     for i in range(n):
-#         pasc.append([])
-#         pasc[i].append(1)
-#         for j in range(1, i):
-#             pasc[i].append(pasc[i - 1][j - 1] + pasc[i - 1][j])
-#         if n != 0:
-#             pasc[i].append(1)
-#     for i in range(n):
-#         print("[", end="")
-#         for j in range(0, i):
-#             print(pasc[i][j], end=",")
-#         print(pasc[i][i], end="]")
-#         print()
-#     return pasc
-
 
 pasc = []
 
