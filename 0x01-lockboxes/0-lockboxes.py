@@ -11,9 +11,9 @@ def canUnlockAll(boxes):
         True: all boxes can be opened
         False: not all boxes can be opened
     """
-    if not boxes or not isinstance(boxes, list)\
+    if boxes is None or not isinstance(boxes, list)\
        or any([1 for x in boxes if not isinstance(x, list)]):
-        raise TypeError("boxes should be a list of lists")
+        return True
     if len(boxes) < 2:
         return True
     queue = set([0])
