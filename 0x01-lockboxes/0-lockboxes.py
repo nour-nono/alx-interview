@@ -26,4 +26,4 @@ def canUnlockAll(boxes):
             if boxes_state[x] == 0:
                 queue.add(x)
         boxes_state[current] = 1
-    return all(boxes_state)
+    return 0 not in boxes_state
