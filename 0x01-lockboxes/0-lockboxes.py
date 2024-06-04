@@ -14,11 +14,11 @@ def canUnlockAll(boxes):
     # if boxes is None or not isinstance(boxes, list)\
     #    or any([1 for x in boxes if not isinstance(x, list)]):
     #     return True
-    # if len(boxes) < 2:
-    #     return True
+    if len(boxes) < 2:
+        return True
     queue = set([0])
     boxes_state = [0 for x in boxes]
-    while queue:
+    while len(queue):
         current = queue.pop()
         if boxes_state[current] == 1:
             continue
