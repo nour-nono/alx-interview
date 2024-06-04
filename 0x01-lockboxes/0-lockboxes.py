@@ -20,10 +20,10 @@ def canUnlockAll(boxes):
     boxes_state = [0 for x in boxes]
     while len(queue):
         current = queue.pop()
-        if boxes_state[current] == 1 and current < len(boxes):
+        if boxes_state[current] == 1:
             continue
         for x in boxes[current]:
-            if boxes_state[x] == 0:
+            if x < len(boxes) and boxes_state[x] == 0:
                 queue.add(x)
         boxes_state[current] = 1
     return 0 not in boxes_state
