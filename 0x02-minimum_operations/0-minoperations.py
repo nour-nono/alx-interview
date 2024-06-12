@@ -25,15 +25,15 @@ def minOperations(n):
 		return 0
 	if n in mem:
 		return mem[n]
-	nDiv = divisors(n)
-	if len(nDiv) == 0:
+	n_div = divisors(n)
+	if len(n_div) == 0:
 		mem[n] = n
 		return n
 	ans = inf
 	tmp = 0
-	for x in nDiv:
+	for x in n_div:
 		tmp = max(tmp, x)
-	for x in nDiv:
+	for x in n_div:
 		ans = min(ans, minOperations(x) + n/x)
 	ans = minOperations(tmp) + n/tmp
 	ans = int(ans)
