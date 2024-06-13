@@ -56,10 +56,6 @@ def prime_factorization(n):
 def minOperations(n):
     """
     this function returns the minimum number of operations to reach n from 1
-    params:
-        n: int
-    return:
-        int
     """
     if not isinstance(n, int) or n <= 1:
         return 0
@@ -68,4 +64,3 @@ def minOperations(n):
     for x in prime_facrors:
         ans += prime_facrors[x] * x
     return ans
-    
