@@ -34,7 +34,3 @@ the second byte is 10000010, the first 2 bits are 10, so it's a continuation byt
 the third byte is 00000001, the first bit is 0, so it's a 1-byte character
 so the result are 2 characters, the first character is 00101000010, and the second character is 00000001
 so the encoding is valid
-
-
-
-
