@@ -1,14 +1,10 @@
 #!/usr/bin/python3
-"""
-Solution to the nqueens problem
-"""
+""" nqueens problem solution module"""
 import sys
 
 
-def backtrack(r, n, cols, pos, neg, board):
-    """
-    backtrack function to find solution
-    """
+def backtrack(r, n, cols, pos_diag, neg_diag, board):
+    """ backtrack function """
     if r == n:
         res = []
         for i in range(len(board)):
@@ -19,31 +15,24 @@ def backtrack(r, n, cols, pos, neg, board):
         return
 
     for c in range(n):
-        if c in cols or (r + c) in pos or (r - c) in neg:
+        if c in cols or (r + c) in pos_diag or (r - c) in neg_diag:
             continue
 
         cols.add(c)
-        pos.add(r + c)
-        neg.add(r - c)
+        pos_diag.add(r + c)
+        neg_diag.add(r - c)
         board[r][c] = 1
 
-        backtrack(r+1, n, cols, pos, neg, board)
+        backtrack(r+1, n, cols, pos_diag, neg_diag, board)
 
         cols.remove(c)
-        pos.remove(r + c)
-        neg.remove(r - c)
+        pos_diag.remove(r + c)
+        neg_diag.remove(r - c)
         board[r][c] = 0
 
 
 def nqueens(n):
-    """
-    Solution to nqueens problem
-    Args:
-        n (int): number of queens. Must be >= 4
-    Return:
-        List of lists representing coordinates of each
-        queen for all possible solutions
-    """
+    """ Solution to nqueens problem """
     cols = set()
     pos_diag = set()
     neg_diag = set()
@@ -58,11 +47,11 @@ if __name__ == "__main__":
         print("Usage: nqueens N")
         sys.exit(1)
     try:
-        nn = int(n[1])
-        if nn < 4:
+        size = int(n[1])
+        if size < 4:
             print("N must be at least 4")
             sys.exit(1)
-        nqueens(nn)
+        nqueens(size)
     except ValueError:
         print("N must be a number")
         sys.exit(1)
